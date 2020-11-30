@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cuahangbandoanvat.GUI;
+using Cuahangbandoanvat.BUS;
 
-namespace Cuahangbandoanvat
+namespace Cuahangbandoanvat.GUI
 {
-    class Program
+    class LoaiHangGUI
     {
-        static void Main()
+        private LoaiHangBUS lhBUS = new LoaiHangBUS();
+
+        public void HienMENU()
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.InputEncoding = Encoding.UTF8;
-            bool end = false;
-            while (!end)
+            Console.Clear();
+            bool kt = false;
+            while (!kt)
             {
                 Console.Clear();
                 Console.Title = "\t          CHƯƠNG TRÌNH QUẢN LÝ SÁCH CỦA CỬA HÀNG ĐỒ ĂN VẶT ";
@@ -25,24 +26,24 @@ namespace Cuahangbandoanvat
                 Console.Write("\n\t\t║                                                                       ║");
                 Console.Write("\n\t\t║ ╔═══════════════════════════════════════════════════════════════════╗ ║");
                 Console.Write("\n\t\t║ ║                                                                   ║ ║");
-                Console.Write("\n\t\t║ ║                           MENU CHÍNH                              ║ ║");
+                Console.Write("\n\t\t║ ║                         QUẢN LÝ LOẠI HÀNG                         ║ ║");
                 Console.Write("\n\t\t║ ║                                                                   ║ ║");
                 Console.Write("\n\t\t║ ║              ╔═══╦══════════════════════════════╗                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║___║______________________________║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║   ║                              ║                 ║ ║");
-                Console.Write("\n\t\t║ ║              ║ 1.║     QUẢN LÝ LOẠI HÀNG        ║                 ║ ║");
+                Console.Write("\n\t\t║ ║              ║ 1.║     HIỂN THỊ CÁC LOẠI HÀNG   ║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║___║______________________________║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║   ║                              ║                 ║ ║");
-                Console.Write("\n\t\t║ ║              ║ 2.║     QUẢN LÝ BÁN HÀNG         ║                 ║ ║");
+                Console.Write("\n\t\t║ ║              ║ 2.║     THÊM LOẠI HÀNG           ║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║___║______________________________║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║   ║                              ║                 ║ ║");
-                Console.Write("\n\t\t║ ║              ║ 3.║     QUẢN LÝ NHẬP HÀNG        ║                 ║ ║");
+                Console.Write("\n\t\t║ ║              ║ 3.║     SỬA LOẠI HÀNG            ║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║___║______________________________║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║   ║                              ║                 ║ ║");
-                Console.Write("\n\t\t║ ║              ║ 4.║     QUẢN LÝ KHÁCH HÀNG       ║                 ║ ║");
+                Console.Write("\n\t\t║ ║              ║ 4.║     XÓA LOẠI HÀNG            ║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║___║______________________________║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║   ║                              ║                 ║ ║");
-                Console.Write("\n\t\t║ ║              ║ 5.║     THOÁT KHỎI CHƯƠNG TRÌNH  ║                 ║ ║");
+                Console.Write("\n\t\t║ ║              ║ 5.║     QUAY LẠI MENU CHÍNH      ║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║___║______________________________║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ║   ║ Bấm phím theo số để chọn:    ║                 ║ ║");
                 Console.Write("\n\t\t║ ║              ╚═══╩══════════════════════════════╝                 ║ ║");
@@ -54,23 +55,61 @@ namespace Cuahangbandoanvat
                 Console.Write("\n\t\t║                                                                       ║");
                 Console.Write("\n\t\t╚═══════════════════════════════════════════════════════════════════════╝");
                 Console.SetCursorPosition(65, 26);
-                Char key = Char.ToUpper(Console.ReadKey(true).KeyChar);
+                char key = char.ToUpper(Console.ReadKey(true).KeyChar);
                 switch (key)
                 {
-                    case '1':
-                        LoaiHangGUI loaiHang = new LoaiHangGUI();
-                        loaiHang.HienMENU(); break;
-                    case '2':HoaDonGUI hoaDon = new HoaDonGUI();
-                        hoaDon.HienMENU();break;
-                    case '3':
-                        HangHoaGUI hangHoa = new HangHoaGUI();
-                        hangHoa.HienMENU(); break;
-                    case '4':KhachHangGUI khachHang = new KhachHangGUI();
-                        khachHang.HienMenu();break;
-                    case '5':end = true;break;
+                    case '1':HienLoaiHang();Console.ReadKey();break;
+                    case '2':ThemLoaiHang();Console.ReadKey();break;
+                    case '3':SuaLoaiHang();Console.ReadKey();break;
+                    case '4':XoaLoaiHang();Console.ReadKey();break;
+                    case '5': kt = true; break;
                 }
             }
-
+        }
+        public void HienLoaiHang()
+        {
+            Console.WriteLine("Danh sach cac loai hang");
+            foreach (string s in lhBUS.LayDanhSach())
+            {
+                Console.WriteLine(s);
+            }
+        }
+        public void ThemLoaiHang()
+        {
+            Console.WriteLine("Danh sach loai hang da co");
+            foreach(string s in lhBUS.LayDanhSach())
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine("Nhap thong tin loai hang muon them");
+            Console.Write("Ma loai hang:");
+            string maLH = Console.ReadLine();
+            Console.Write("Ten loai hang:");
+            string tenLH = Console.ReadLine();
+            lhBUS.ThemLH(maLH, tenLH);
+            Console.WriteLine("Da them thanh cong!!!");
+        }
+        public void SuaLoaiHang()
+        {
+            foreach(string s in lhBUS.LayDanhSach())
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine("Nhap thong tin loai hang muon sua");
+            Console.Write("Nhap ma loai hang muon sua :");
+            string maLH = Console.ReadLine();
+            Console.Write("Nhap ten loai hang muon sua :");
+            string tenLH = Console.ReadLine();
+            lhBUS.SuaLH(maLH, tenLH);
+            Console.WriteLine("Cap nhat thanh cong !!!");
+        }
+        public void XoaLoaiHang()
+        {
+            Console.WriteLine("Nhap thong tin loai hang muon xoa");
+            Console.Write("Ma loai hang :");
+            string maLH = Console.ReadLine();
+            lhBUS.XoaLH(maLH);
+            Console.WriteLine("Da xoa loai hang!!!");
         }
     }
 }

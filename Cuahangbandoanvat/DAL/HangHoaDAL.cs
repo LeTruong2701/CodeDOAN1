@@ -60,7 +60,7 @@ namespace Cuahangbandoanvat.DAL
             sw.Close();
         }
 
-        public string Laythongtin(string maHH)
+        public string Laythongtinhanghoa(string maHH)
         {
             StreamReader sr = new StreamReader(file);
             string kq = "";
@@ -70,7 +70,7 @@ namespace Cuahangbandoanvat.DAL
                 string[] tmp = s.Split('#');
                 if( tmp[0]== maHH)
                 {
-                    kq = tmp[0]+"#" + tmp[1]+"#" + tmp[2]+"#" + tmp[3];
+                    kq = tmp[0]+"\t" + tmp[1]+"\t" + tmp[2]+"\t" + tmp[3];
                 }
             }
             sr.Close();
@@ -83,9 +83,9 @@ namespace Cuahangbandoanvat.DAL
             string s;
             List<string> ds = new List<string>();
             while ((s = sr.ReadLine()) != null)
-            {
+            {   
                 string[] tmp = s.Split('#');
-                string kq = tmp[0] + "#" + tmp[1] + "#" + tmp[2] + "#" + tmp[3];
+                string kq = tmp[0] + "\t" + tmp[1] + "\t" + tmp[2] + "\t" + tmp[3];
                 ds.Add(kq);
             }
             sr.Close();

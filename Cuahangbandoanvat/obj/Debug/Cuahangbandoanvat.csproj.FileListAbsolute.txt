@@ -1,0 +1,12 @@
+D:\Doan1\Cuahangbandoanvat\Cuahangbandoanvat\bin\Debug\Cuahangbandoanvat.exe.config
+D:\Doan1\Cuahangbandoanvat\Cuahangbandoanvat\bin\Debug\Cuahangbandoanvat.exe
+D:\Doan1\Cuahangbandoanvat\Cuahangbandoanvat\bin\Debug\Cuahangbandoanvat.pdb
+D:\Doan1\Cuahangbandoanvat\Cuahangbandoanvat\obj\Debug\Cuahangbandoanvat.csprojAssemblyReference.cache
+D:\Doan1\Cuahangbandoanvat\Cuahangbandoanvat\obj\Debug\Cuahangbandoanvat.exe
+D:\Doan1\Cuahangbandoanvat\Cuahangbandoanvat\obj\Debug\Cuahangbandoanvat.pdb
+D:\1987\Cuahangbandoanvat\Cuahangbandoanvat\bin\Debug\Cuahangbandoanvat.exe.config
+D:\1987\Cuahangbandoanvat\Cuahangbandoanvat\bin\Debug\Cuahangbandoanvat.exe
+D:\1987\Cuahangbandoanvat\Cuahangbandoanvat\bin\Debug\Cuahangbandoanvat.pdb
+D:\1987\Cuahangbandoanvat\Cuahangbandoanvat\obj\Debug\Cuahangbandoanvat.csprojAssemblyReference.cache
+D:\1987\Cuahangbandoanvat\Cuahangbandoanvat\obj\Debug\Cuahangbandoanvat.exe
+D:\1987\Cuahangbandoanvat\Cuahangbandoanvat\obj\Debug\Cuahangbandoanvat.pdb

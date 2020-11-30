@@ -1,0 +1,5 @@
+MH01#Khoai tay chien#Do an#17000
+MH02#Nem nuong#Do an#20000
+MH03#Tra dao#Do uong#15000
+MH04#Tran chau#Topping#5000
+MH05#Thach#Topping#5000
